@@ -14,18 +14,20 @@ export const TodoListBody = () => {
     }
 
     const handleAddTodo = () => {
-        setTodoId(Number(todoId + 1))
-        setTodoValue('')
-        localStorage.setItem(
-            `todoList`,
-            JSON.stringify([
-                ...todoList,
-                {
-                    id: todoId.toString(),
-                    name: todoValue,
-                },
-            ])
-        )
+        if (todoValue !== '') {
+            setTodoId(Number(todoId + 1))
+            setTodoValue('')
+            localStorage.setItem(
+                `todoList`,
+                JSON.stringify([
+                    ...todoList,
+                    {
+                        id: todoId.toString(),
+                        name: todoValue,
+                    },
+                ])
+            )
+        }
     }
 
     const hacndleAllDelete = () => {
