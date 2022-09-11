@@ -27,6 +27,8 @@ export const TodoListBody = () => {
                     },
                 ])
             )
+        } else {
+            alert('請輸入文字')
         }
     }
 
