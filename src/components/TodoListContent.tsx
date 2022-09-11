@@ -11,8 +11,12 @@ export const TodoListContent = () => {
                     return (
                         <div
                             key={item.id}
-                            className="py-3 w-72 flex items-center justify-between pr-2 hover:bg-focus">
-                            <div className="pl-3">{item.name}</div>
+                            className="py-3 w-72 flex items-center justify-between pr-2 hover:bg-focus ">
+                            <div
+                                className="pl-3"
+                                style={{ wordBreak: 'break-all' }}>
+                                {item.name}
+                            </div>
                             <div
                                 className="cursor-pointer"
                                 onClick={() => handleDelete(item.id)}>
