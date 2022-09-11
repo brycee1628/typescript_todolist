@@ -1,5 +1,4 @@
 import { ChangeEvent, useEffect, useState } from 'react'
-import { idText } from 'typescript'
 import { useTodoList } from '../context/TodoListContext'
 
 export const TodoListBody = () => {
