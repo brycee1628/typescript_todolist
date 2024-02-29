@@ -19,7 +19,7 @@ export const TodoListContent = () => {
                             </div>
                             <div
                                 className="cursor-pointer"
-                                onClick={() => handleDelete(item.id)}>
+                                onClick={() => handleDelete(item.id,item.name)}>
                                 <DeleteIcon />
                             </div>
                         </div>

@@ -17,7 +17,7 @@ type TodoListContext = {
     }[]
     todoId: number
     setTodoId: (value: number) => void
-    handleDelete: (id: string) => void
+    handleDelete: (id: string, name: string) => void
 }
 
 type Data = {
@@ -39,12 +39,17 @@ export function TodoListProvider({ children }: TodoListProviderProps) {
     const [todoId, setTodoId] = useState(1)
     const [data, setData] = useState<Data[]>([...todoList])
 
-    const handleDelete = (id: string) => {
-        const deleteData = data.filter((item) => {
-            return item.id !== id
-        })
-        localStorage.setItem('todoList', JSON.stringify([...deleteData]))
-        setData([...deleteData])
+    const handleDelete = (id: string,name: string) => {
+        if (window.confirm(`確定刪除${name}嗎?`)){
+            const deleteData = data.filter((item) => {
+                return item.id !== id
+            })
+            localStorage.setItem('todoList', JSON.stringify([...deleteData]))
+            setData([...deleteData])
+        }
+        else{
+            return
+        }
     }
 
     useEffect(() => {
